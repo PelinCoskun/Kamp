@@ -1,4 +1,5 @@
-﻿using ConsoleApp1.DataAccess.Concretes;
+﻿using ConsoleApp1.DataAccess.Abstracts;
+using ConsoleApp1.DataAccess.Concretes;
 using ConsoleApp1.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,12 +11,19 @@ namespace ConsoleApp1.Business;
 
 public class CourseManager
 {
-    
+    //dependecy injection
+    private readonly ICourseDal _courseDal;
+
+    public CourseManager(ICourseDal courseDal)
+    {
+        _courseDal = courseDal;
+    }
+
     public List<Course> GetAll() 
     {
         //business rules
         CourseDal courseDal = new CourseDal();
-        return courseDal.GetAll();
+        return _courseDal.GetAll();
        
     }
 }

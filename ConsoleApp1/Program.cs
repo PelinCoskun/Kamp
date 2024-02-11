@@ -1,13 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ConsoleApp1.Business;
+using ConsoleApp1.DataAccess.Concretes;
 using ConsoleApp1.Entities;
 
 Console.WriteLine("Hello, World!");
 
 
-CourseManager courseManager = new();
-Course[] courses2 = courseManager.GetAll();
-for (int i = 0; i < courses2.Length; i++)
+CourseManager courseManager = new(new EfCourseDal());
+List<Course> courses2 = courseManager.GetAll();
+for (int i = 0; i < courses2.Count; i++)
 {
     Console.WriteLine(courses2[i].Name + "/" + courses2[i].Price);
 }

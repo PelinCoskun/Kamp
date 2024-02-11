@@ -1,4 +1,5 @@
-﻿using ConsoleApp1.Entities;
+﻿using ConsoleApp1.DataAccess.Abstracts;
+using ConsoleApp1.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.DataAccess.Concretes
 {
-   
-    public class CourseDal
+
+    public class CourseDal:ICourseDal
     {
         List<Course> courses;
         public CourseDal()
