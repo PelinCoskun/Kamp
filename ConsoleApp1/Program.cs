@@ -6,13 +6,13 @@ using ConsoleApp1.Entities;
 Console.WriteLine("Hello, World!");
 
 
-CourseManager courseManager = new(new EfCourseDal());
+CourseManager courseManager = new(new DapperCourseDal());
 List<Course> courses2 = courseManager.GetAll();
 for (int i = 0; i < courses2.Count; i++)
 {
     Console.WriteLine(courses2[i].Name + "/" + courses2[i].Price);
 }
-
+  
 
 IndividualCustomer customer1 = new IndividualCustomer();
 customer1.Id = 1;
